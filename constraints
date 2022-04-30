@@ -1,0 +1,25 @@
+create table student(sno int not NULL unique, 
+  sname varchar(12) not NULL default 'harshi',
+  sid int,
+  sgrade float ,
+  age int,
+  check (age>=18),
+  primary key(sno),
+  foreign key (sid)
+);
+select * from student;
+
+create table stud(sno number , 
+  name varchar(100),
+  count number float,
+  inst number,
+  chk_grade float,
+  constraint pk_sno primary key(sno),
+  constraint uniq_cont unique(cont),
+  constraint fk_inst foreign key(inst) references instructor(iid)
+);
+alter table stud add constraint pk_sno primary key(sno);
+alter table student drop constraint pk_sno
+alter table stud add constraint sname varchar(100) not NULL;
+alter table stud add constraint fk_inst foreign key(inst) references instructor(iid);
+alter table stud add constraint chk_grade check(grade between 0.0 and 10.0);
