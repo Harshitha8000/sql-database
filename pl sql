@@ -1,0 +1,38 @@
+table
+------------------------------
+DECLARE
+ n number;
+BEGIN
+ n := &x;
+  FOR l_counter IN 1..10
+  LOOP
+    DBMS_OUTPUT.PUT_LINE(n || 'x' || l_counter || '=' || n*l_counter );
+  END LOOP;
+END;
+
+
+
+palindrom
+------------------------------
+declare
+n number;
+temp number := 0;
+m number;
+rem number;
+begin
+n := &x;
+m:=n;
+
+while n>0
+loop
+rem:=mod(n,10);
+temp:=(temp*10)+rem;
+n:=trunc(n/10);
+end loop;
+if m = temp
+then
+dbms_output.put_line('it is a palindrom');
+else
+dbms_output.put_line('it is not a palindrom');
+end if;
+end;
