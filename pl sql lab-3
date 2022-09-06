@@ -1,4 +1,5 @@
-1)
+1) palindrom
+
 declare
 n number;
 m number;
@@ -6,18 +7,66 @@ temp number:=0;
 rem number;
 begin
 n:=&n;
-m:n;
+m:=n;
 while n>0
 loop
 rem:=mod(n,10);
-temp:=(temp*10+rem;
+temp:=(temp*10)+rem;
 n:=trunc(n/10);
 end loop;
-if n=temp
+if m = temp
 then
-dbms_output.put_line("it is a paindorm");
+dbms_output.put_line('it is a palindrom');
 else
-dbms_output.put_line("it is not a palindrom");
+dbms_output.put_line('it is not a palindrom');
+end if;
+end;
+/
+
+
+2) fibonacci
+
+declare
+f number:= 0;
+s number:= 1;
+temp number;
+n number := &n;
+i number;
+begin
+dbms_output.put_line('Series:');
+dbms_output.put_line(f);
+dbms_output.put_line(s);
+for i in 2..n
+loop
+temp:=f+s;
+f := s;
+s := temp;
+dbms_output.put_line(temp);
+end loop;
+end;
+/
+
+
+3) prime
+
+declare
+n number := &n;
+i number := 2;
+t number := 1;
+begin
+for i in 2..n/2
+loop
+if mod(n,i)=0
+then
+t:=0;
+exit;
+end if;
+end loop;
+if t=1
+then
+dbms_output.put_line('it is a prime number');
+else
+dbms_output.put_line('it is not a prime number');
 end if;
 end;
 /
